@@ -1,5 +1,9 @@
 # VISION-WEB-test
 
+# Administration panel
+#### email: admin@me.com
+#### pass: admin
+
 ### API
  - [POST] : http://127.0.0.1:8000/auth/users/ (Регистрация)
      body: {
