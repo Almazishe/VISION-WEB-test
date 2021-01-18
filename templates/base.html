@@ -1,0 +1,181 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>АКМ Стратегия</title>
+</head>
+
+<body>
+    <div class="nav-container fixed-top">
+        <div class="container p-0">
+            <nav class="nav-container p-3 d-flex flex-wrap align-items-center justify-content-between">
+                <div class='nav-logo'>
+                    <a href='' id='logo' class='m-2'>AKM Стратегия</a>
+                    <div>
+                        <a href="#" class='partner-btn px-1 rounded'>партнер</a>
+                        <a href="#">
+                            <img src="https://static.tildacdn.com/tild3531-6234-4231-b638-346330343865/KFG-gPAOLHtSi4bt4K6T.svg"
+                                alt="" width='100px'>
+                        </a>
+                    </div>
+
+                </div>
+
+                <div class='d-flex'>
+                    <div>
+                        <a href="#how-we-work" class='nav-text mx-2'>Как мы работаем</a>
+                    </div>
+                    <div>
+                        <a href="#why-dzen" class='nav-text mx-2'>Почему Дзен</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <div class='d-flex flex-wrap flex-column  mt-5'>
+        <div class="bg-dark-blue vh-100 d-flex align-items-center">
+            <div class="container p-0">
+                <div class=' row align-items-center'>
+                    <div class="col-12 col-md-6 pt-5">
+                        <img src="https://static.tildacdn.com/tild3761-3038-4565-a432-646464383063/_.svg" width="100%"
+                            alt="">
+                    </div>
+                    <div class='col-12 col-md-6 '>
+                        <h1 class='main-block-title mb-4'> Приведём клиентов из Яндекс.Дзена</h1>
+                        <p class='main-block-description'>Запускаем и ведём рекламные кампании на Дзене под ключ:
+                            определяемся с целями, продумываем структуру и контент-план, готовим статьи и настраиваем
+                            таргетинг. Даём понятную отчётность.</p>
+                        <p class='main-block-description'>Работаем со строительными компаниями, производителями окон и
+                            мебели, онлайн-образованием и
+                            клиниками.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class='container py-5' id='why-dzen'>
+            <h1 class='simple-vs-dzen-title my-5'>Обычная реклама vs Яндекс.Дзен</h1>
+            <div class="row s-vs-d-row my-2">
+                <!-- DARK COLUMN -->
+                <div class="col-6 d-flex flex-column align-items-end">
+                    {% for ad in simple_ads %}
+                    <div class='d-flex flex-column s-vs-d-item-dark w-75  px-4 pt-5 pb-3 my-4 align-items-start'>
+                        <div class="d-flex">
+                            <img src="https://static.tildacdn.com/tild3163-3863-4232-a432-313336313066/_1.svg"
+                                width="30px" height="30px" alt="">
+                            <h5 class='s-vs-d-item-dark-title'>{{ad.title}}</h5>
+                        </div>
+                        <p class='s-vs-d-item-dark-description'>{{ad.text}}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+                <!-- WHITE COLUMN -->
+                <div class="col-6 d-flex flex-column align-items-start  ">
+                    {% for ad in dzen_ads %}
+                    <div class='d-flex flex-column s-vs-d-item-light w-75  px-4 pt-5 pb-3 my-4 align-items-start'>
+                        <div class="d-flex ">
+                            <img src="https://static.tildacdn.com/tild6534-6637-4234-a433-396337366464/_2.svg"
+                                width="30px" height="30px" alt="">
+                            <h5 class='s-vs-d-item-light-title'>{{ad.title}}</h5>
+                        </div>
+                        <p class='s-vs-d-item-light-description'>{{ad.text}}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+
+        <div class="bg-dark-blue">
+            <div class="container p-0">
+                <h1 class='dzen-title my-5'> <strong>Специализируемся на</strong> <strong
+                        style="color: rgb(255, 219, 88);">Яндекс.Дзене</strong></h1>
+                {% for adv in advantages %}
+                    {% if adv.img_place == right %}
+                        <div class="d-flex justify-content-between align-items-center my-5 py-5">
+                            <div class="w-50">
+                                <h3 class='dzen-list-title'>{{adv.title}}</h3>
+                                <p class='dzen-list-description'>{{adv.text}}</p>
+                            </div>
+                            <div class="align-self-start">
+                                <img src="{{adv.img}}"
+                                    width='500px' alt="">
+                            </div>
+                        </div>
+                    {% elif adv.img_place == left %}
+                        <div class="d-flex justify-content-between align-items-center my-5 py-5">
+                            <div class="align-self-start">
+                                <img src="{{adv.img}}"
+                                    width='500px' alt="">
+                            </div>
+                            <div class="w-50">
+                                <h3 class='dzen-list-title'>{{adv.title}}</h3>
+                                <p class='dzen-list-description'>{{adv.text}}</p>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class='container'>
+            <div class="row py-5">
+                <div class="col-8">
+                    <h1 class='goals-title text-center my-5' id='how-we-work'>Работаем с разными целями</h1>
+                    <div class="d-flex flex-column">
+                        {% for goal in goals %}
+                            <div class='d-flex'>
+                                <span class="badge rounded-pill bg-info text-dark align-text-top">{{goal.pk}}</span>
+                                <div class="d-flex flex-column mx-4">
+                                    <h4 class='goals-list-title'>{{goal.title}}</h4>
+                                    <p class='goals-list-description'>{{goal.text}}</p>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class='col-4 px-5'>
+                    <img src="https://static.tildacdn.com/tild3034-3861-4930-a665-353665636364/_1.svg" class='sticky'
+                        width='250px' alt="">
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-dark-blue">
+            <div class="container py-5">
+                <h1 class='project-form-title mb-5'>Обсудить проект</h1>
+                <hr>
+                <div class="row">
+                    <div class="col-6">
+                        <img src="https://static.tildacdn.com/tild6662-3539-4432-a536-613233323836/__1.svg"
+                            width="500px" alt="">
+                    </div>
+                    <form action="" class='col-6 d-flex flex-column' method='POST'>
+                        {% csrf_token %}
+                        {{form}}
+                        <input type="submit" value='Оставить заявку' class='submit-but p-3'>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
