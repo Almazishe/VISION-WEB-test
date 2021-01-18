@@ -1,5 +1,7 @@
 # VISION-WEB-test
 
+Как темплейт использовал: https://akmstrategy.ru/
+
 # Administration panel
 #### email: admin@me.com
 #### pass: admin
